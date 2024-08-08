@@ -1,23 +1,24 @@
 /* -----------  TIPOS, COMANDOS, ETC ---------------- 
 console.log()
 typeof "variavel"=> retorna o tipo do dado
-{} -> objeto
-[] -> array
-null -> nulo (normalmente usado para iniciar variáveis que terão seu valor alterado)
-let -> variavel
-const -> constante
+{}      -> objeto
+[]      -> array
+null    -> nulo (normalmente usado para iniciar variáveis que terão seu valor alterado)
+let     -> variavel
+const   -> constante
 
 --------- OPERADORES ---------
-== -> comparação igual
-!= -> comparação diferente
+==  -> comparação igual
+!=  -> comparação diferente
 === -> leva em comparação o tipo do dado  ***SEMPRE UTILIZEI ESSE, MAIS CONFIABILIDADE***
 
-&& -> and
-|| -> or
+&&  -> and
+||  -> or
 
-
+.split      -> divide pelo caracter que vc quer e joga tudo em um array
 
 */
+
 const x = "12";
 const xConvertido = Number(x);
 
@@ -74,3 +75,38 @@ console.log(now);
 const natal = new Date(2024, 11, 25); // detalhe que os meses começam a contar do 0(zero), no caso dezembro é entendido como 11
 console.log(natal);
 
+console.log(string2.split(" "));
+
+function converterHorario(horario){
+    // o índice do array é usado como variável p/ receber o valor do split, depois só usar a variavel de forma solta.
+    let [hora,minuto] = horario.split(":") 
+    let periodo = "AM";
+    
+    let newHora = hora % 12;
+    // let newHora = hora % 12 || 12;
+
+    if (newHora < 1){ //podemos substituir esse if adicionando o operador || logo após o calculo do resto da newHora
+        newHora = 12
+    }
+
+    if (hora >= 12 && minuto > 0) {
+        periodo = "PM";
+    }
+    if (hora == 0 && minuto == 0) {
+        periodo = "Midnight";
+    }
+    if (hora == 12 && minuto == 0) {
+        periodo = "Noon"
+    }
+
+    console.log(`${newHora}:${minuto} ${periodo}`);
+}
+
+converterHorario("00:00");
+converterHorario("00:45");
+converterHorario("01:00");
+converterHorario("10:01");
+converterHorario("12:00");
+converterHorario("12:45");
+converterHorario("13:00");
+converterHorario("22:01");
