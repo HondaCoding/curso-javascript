@@ -130,5 +130,20 @@ async function tirarCNH(idade) {
 tirarCNH(19)
 tirarCNH(17)
 
+// --------------------------- JSON (Javascript Object Notation)
+// {nome: "teste"} => {"nome:" "teste"}
+const objeto = {nome: "Joao", idade:30};
+const jsonString = JSON.stringify(objeto);
+
+objeto2 = JSON.parse(jsonString);
+
+console.log(jsonString);
+console.log(objeto2)
+console.log("-----")
+
+
+
+
+
 
 
